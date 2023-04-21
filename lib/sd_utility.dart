@@ -15,7 +15,6 @@ part './common/sd_private_const.dart';
 part './common/sd_public_const.dart';
 // Date Time
 part './date_time/date_time_utility.dart';
-part './encrypt_decrypt/encrypt_decrypt.dart';
 // Model classes
 part './models/sd_text_span.dart';
 // Text
