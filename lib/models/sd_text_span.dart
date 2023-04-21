@@ -1,4 +1,4 @@
-part of "../sd_utility.dart";
+part of sd_utility;
 
 class SDTextSpan {
   final String text;
@@ -10,7 +10,7 @@ class SDTextSpan {
   final String? semanticsLabel;
   final Locale? locale;
 
-    // text style
+  // text style
   final bool inherit;
   final Color? color;
   final Color? backgroundColor;
@@ -44,7 +44,7 @@ class SDTextSpan {
     this.mouseCursor,
     this.semanticsLabel,
     this.locale,
-       // Test style
+    // Test style
     this.inherit = true,
     this.color,
     this.backgroundColor,

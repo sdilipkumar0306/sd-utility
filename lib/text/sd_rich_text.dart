@@ -1,4 +1,4 @@
-part of "../sd_utility.dart";
+part of sd_utility;
 
 class SDRichText extends StatelessWidget {
   final List<SDTextSpan> text;

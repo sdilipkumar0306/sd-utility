@@ -1,4 +1,4 @@
-part of "../sd_utility.dart";
+part of sd_utility;
 
 class SDText extends StatelessWidget {
   final String data;
@@ -85,7 +85,6 @@ class SDText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       data,
-      
       style: style != null
           ? style!.copyWith(
               inherit: inherit,

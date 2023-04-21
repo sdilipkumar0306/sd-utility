@@ -1,4 +1,4 @@
-part of "../sd_utility.dart";
+part of sd_utility;
 
 String _date = "DD";
 String _shotDay = "SD";
