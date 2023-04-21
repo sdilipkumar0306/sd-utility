@@ -1,23 +1,33 @@
 part of sd_utility;
 
 class SDEncrypter {
-  static String encrypt(String text, [String? keyCode]) {
-    return _genAesCrypt(keyCode).gcm.encrypt(inp: text, iv: _iv16Key);
+  static String encrypt(String text, [String? publicKey, String? privateKey]) {
+    return _genAesCrypt(publicKey).gcm.encrypt(inp: text, iv: privateKey ?? _encrypterPrivateKey);
   }
 
-  static String decrypt(String text, [String? keyCode]) {
-    return _genAesCrypt(keyCode).gcm.decrypt(enc: text, iv: _iv16Key);
+  static String decrypt(String text, [String? publicKey, String? privateKey]) {
+    return _genAesCrypt(publicKey).gcm.decrypt(enc: text, iv: privateKey ?? _encrypterPrivateKey);
   }
 
-  static String encryptCTR(String text, [String? keyCode]) {
-    return _genAesCrypt(keyCode).ctr.encrypt(inp: text, iv: _iv16Key);
+  static String encryptCTR(String text, [String? publicKey, String? privateKey]) {
+    return _genAesCrypt(publicKey).ctr.encrypt(inp: text, iv: privateKey ?? _encrypterPrivateKey);
   }
 
-  static String decryptCTR(String text, [String? keyCode]) {
-    return _genAesCrypt(keyCode).ctr.decrypt(enc: text, iv: _iv16Key);
+  static String decryptCTR(String text, [String? publicKey, String? privateKey]) {
+    return _genAesCrypt(publicKey).ctr.decrypt(enc: text, iv: privateKey ?? _encrypterPrivateKey);
   }
 
-  static String generateKey() {
-    return _genCryptKey.genFortuna();
+  static void setPublicKey(String key) {
+    _encrypterPublicKey = key;
   }
+
+  static void setPrivateKey(String key) {
+    _encrypterPrivateKey = key;
+  }
+
+  static String get generateRandomKey => _genCryptKey.genFortuna();
+
+  static String get generatePublicKey => _genCryptKey.genFortuna();
+
+  static String get generatePrivateKey => _genCryptKey.genDart();
 }
